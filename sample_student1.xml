@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- sample_student1.xml - An xml document that lists all courses for a student1. -->
+
+<!--  Assign the XSLT stylesheet to the xml file  -->
+<?xml-stylesheet type="text/xsl" href="sample_student.xsl"?>
+
+<!--  student has two attribute "ID" and "password" hash in MD5 Crypt  -->
+<student ID="150018940"  password="5eb63bbbe01eeed093cb22bb8f5acdc3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="schema.xsd">
+
+  <!-- course-list tag contains all courses, one nasted tag course with 1 to +oo appearence  -->
+  <course_list>
+
+    <!--  course tag has two attributes "course_ID" (as required attribute with pattern
+          r"IT[0-9][0-9][0-9]") and "status" which can be 'current' (as default) or 'pass'
+        -->
+    <course course_ID="IT564" status="current">
+      <!--  course-name as a string  -->
+      <course_name>Modern Physics</course_name>
+
+      <!-- instructor tag contains the name of the instructor and his assignement as an
+           attribute "for", 1-4
+          -->
+      <instructor for="lecture">Marwan Suliman</instructor>
+      <instructor for="lab">Sumaiya Begum</instructor>
+
+      <!--  credit_hours is a number -->
+      <credit_hours>30</credit_hours>
+
+      <!--  description as a string  -->
+      <description>“Modern Physics” is a phrase that generally refers to the most significant developments in physics in the past century: special relativity (appropriate for describing really fast stuff); quantum mechanics (necessary for describing really small stuff); atomic, molecular and laser physics; electronic materials (semiconductors); the elementary particles and the fundamental forces (the electromagnetic, weak and strong interactions); nuclear physics (fission, fusion and radioactivity), and astrophysics and cosmology (the contents and evolution of the universe). I will introduce you to amazing insights we have about the universe on length and time scales that span many, many orders of magnitude. As well as emphasizing the progress that has been made in our understanding of the universe, I will also point out the questions that remain open – questions that are currently the subject of active research at Stanford and elsewhere. I will describe how many of these seemingly esoteric topics touch on your everyday life and have led to most of the technological developments of the past century. Your view of the world will never be the same!</description>
+
+      <!--  textbooks contains the texts of the course 0-20 text can be uploaded  -->
+      <textbooks>
+
+        <!--  text tag contains the information about the course text  -->
+        <!--  text1 : main course book "Basics of Web"-->
+        <text type="book" is_main="true">
+          <!--  ISBN : The International Standard Book Number of the book  -->
+          <ISBN>978-3-16-148410-0</ISBN>
+          <!--  title : A simple string  -->
+          <title>Basics of physics</title>
+          <!--  author : contains fname, mname (optional) and lname.  -->
+          <author>
+            <fname>Sulaiman</fname>
+            <mname>Lai</mname>
+            <lname>Muhammed</lname>
+          </author>
+
+          <!--  edition (optional) "integer" -->
+          <edition>2.0</edition>
+
+          <!--  link (optional, i.e. if the type is webpage, or type book but it is an online
+                book).
+              -->
+
+        </text>
+
+        <!--  text2 : secondary course paper "Basics of Web notes"-->
+        <text type="paper" is_main="false">
+
+          <title>Physics notes</title>
+          <author>
+            <fname>Nawaf</fname>
+            <lname>Sulaiman</lname>
+          </author>
+
+          <edition>fourth</edition>
+
+        </text>
+
+        <!--  text3 : main course web page "Web dev site"-->
+        <text type="webpage" is_main="true">
+
+          <title>teachingcommons</title>
+          <author>
+            <fname>AMOKRANE</fname>
+            <lname>Majid</lname>
+          </author>
+          <author>
+            <fname>GUEDWAR</fname>
+            <lname>Ahmed</lname>
+          </author>
+          <edition>5.2</edition>
+          <link>https://teachingcommons.stanford.edu</link>
+
+        </text>
+
+      </textbooks>
+
+    </course>
+
+
+
+    <course course_ID="IT212" status="pass">
+      <!--  course-name as a string  -->
+      <course_name>Web development</course_name>
+
+      <!-- instructor tag contains the name of the instructor and his assignement as an
+           attribute "for", 1-4
+          -->
+      <instructor for="lecture">AMOKRANE Abdennour</instructor>
+      <instructor for="lab">MOHAMMED Abdel-jalil</instructor>
+
+      <!--  credit_hours is a number -->
+      <credit_hours>30</credit_hours>
+
+      <!--  description as a string  -->
+      <description>Course description here...</description>
+
+      <!--  textbooks contains the texts of the course 0-20 text can be uploaded  -->
+      <textbooks>
+
+        <!--  text tag contains the information about the course text  -->
+        <!--  text1 : main course book "Basics of Web"-->
+        <text type="book" is_main="true">
+          <!--  ISBN : The International Standard Book Number of the book  -->
+          <ISBN>978-3-16-148410-0</ISBN>
+          <!--  title : A simple string  -->
+          <title>Basics of Web</title>
+          <!--  author : contains fname, mname (optional) and lname.  -->
+          <author>
+            <fname>AMOKRANE</fname>
+            <mname>Abdennour</mname>
+            <lname>Majid</lname>
+          </author>
+
+          <!--  edition (optional) "integer" -->
+          <edition>2</edition>
+
+          <!--  link (optional, i.e. if the type is webpage, or type book but it is an online
+                book).
+              -->
+          <link>file:///C:/Users/asus/Downloads/EMD/Milestone-1.pdf</link>
+
+        </text>
+
+        <!--  text2 : secondary course paper "Basics of Web notes"-->
+        <text type="paper" is_main="false">
+
+          <title>Basics of Web notes</title>
+          <author>
+            <fname>AMOKRANE</fname>
+            <lname>Abdennour</lname>
+          </author>
+
+        </text>
+
+        <!--  text3 : main course web page "Web dev site"-->
+        <text type="webpage" is_main="true">
+
+          <title>Web dev site</title>
+          <author>
+            <fname>AMOKRANE</fname>
+            <lname>Majid</lname>
+          </author>
+          <author>
+            <fname>GUEDWAR</fname>
+            <lname>Ahmed</lname>
+          </author>
+          <edition>5</edition>
+          <link>https://www.chemistryworld.com/news/less-is-more-for-dna-reactions/5553.article</link>
+
+        </text>
+
+      </textbooks>
+
+    </course>
+
+  </course_list>
+
+</student>

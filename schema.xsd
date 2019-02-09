@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- schema.xsd - An xsd document that lists all courses for a student. -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+
+<!--  Types  -->
+<!--  idtype -->
+<xs:simpleType name="idtype">
+  <xs:restriction base="xs:string">
+    <!--   well-known KSU ID pattern -->
+    <xs:pattern value="[0-9]{9}"/>
+  </xs:restriction>
+</xs:simpleType>
+
+<!--  passwordtype -->
+<xs:simpleType name="passwordtype">
+  <xs:restriction base="xs:string">
+    <!--  password length has to be greater than 6  -->
+    <xs:minLength value="6" />
+  </xs:restriction>
+</xs:simpleType>
+
+<!--  courseidtype -->
+<xs:simpleType name="courseidtype">
+  <xs:restriction base="xs:string">
+    <!--   well-known course_ID pattern -->
+    <xs:pattern value="IT[0-9]{3}" />
+  </xs:restriction>
+</xs:simpleType>
+
+<!--  statustype -->
+<xs:simpleType name="statustype">
+  <xs:restriction base="xs:string">
+    <!--  status is current OR pass  -->
+    <xs:pattern value="current|pass"/>
+  </xs:restriction>
+</xs:simpleType>
+
+<!--  fortype -->
+<xs:simpleType name="fortype">
+  <xs:restriction base="xs:string">
+    <!--  for is lecture OR lab  -->
+    <xs:pattern value="lecture|lab"/>
+  </xs:restriction>
+</xs:simpleType>
+
+<!--  texttype -->
+<xs:simpleType name="texttype">
+  <xs:restriction base="xs:string">
+    <!--  type is book OR paper OR webpage  -->
+    <xs:pattern value="book|paper|webpage"/>
+  </xs:restriction>
+</xs:simpleType>
+
+
+
+<xs:element name="student">
+  <xs:complexType>
+
+    <!--  Nasted tags of student -->
+    <xs:sequence>
+      <!--  course-list tag  -->
+      <xs:element name="course_list">
+        <xs:complexType>
+          <xs:sequence>
+            <!--  The course tag  from 1 to +oo courses-->
+            <xs:element name="course" minOccurs="1" maxOccurs="unbounded">
+              <xs:complexType>
+
+                <xs:sequence>
+
+                  <!--  course_name tag  -->
+                  <xs:element name="course_name" type="xs:string"/>
+
+                  <!--  instructor tag  -->
+
+                  <xs:element name="instructor" minOccurs="1" maxOccurs="4">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute name="for" type="fortype" use="required"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+
+                  <!--  credit_hours tag  -->
+                  <xs:element name="credit_hours" type="xs:positiveInteger"/>
+
+                  <!--  description tag  -->
+                  <xs:element name="description" type="xs:string"/>
+
+                  <!-- textbooks tag -->
+                  <xs:element name="textbooks">
+                    <xs:complexType>
+                      <xs:sequence>
+
+                        <!--  text tag  -->
+                        <xs:element name="text" minOccurs="0" maxOccurs="20">
+                          <xs:complexType>
+
+                            <xs:sequence>
+
+                              <!--  ISBN tag  -->
+                              <xs:element name="ISBN" type="xs:string" minOccurs="0" maxOccurs="1"/>
+
+                              <!--  title tag  -->
+                              <xs:element name="title" type="xs:string"/>
+
+                              <!--  author tag  -->
+                              <xs:element name="author" minOccurs="1" maxOccurs="unbounded">
+                                <xs:complexType>
+                                  <xs:sequence>
+                                    <xs:element name="fname" minOccurs="1" maxOccurs="1"/>
+                                    <xs:element name="mname" minOccurs="0" maxOccurs="1"/>
+                                    <xs:element name="lname" minOccurs="1" maxOccurs="1"/>
+                                  </xs:sequence>
+                                </xs:complexType>
+                              </xs:element>
+
+                              <!--  edition tag -->
+                              <xs:element name="edition" type="xs:string" minOccurs="0" maxOccurs="1"/>
+
+                              <!--  link tag -->
+                              <xs:element name="link" type="xs:string" minOccurs="0" maxOccurs="1"/>
+
+                            </xs:sequence>
+
+                            <!--  Attributes of text  -->
+                            <xs:attribute name="type" type="texttype" use="required"/>
+                            <xs:attribute name="is_main" type="xs:boolean" use="required"/>
+
+
+                          </xs:complexType>
+
+                        </xs:element>
+
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+
+                </xs:sequence>
+
+                <!--  Attributes of course  -->
+                <xs:attribute name="course_ID" type="courseidtype" use="required"/>
+                <xs:attribute name="status" type="statustype" default="current"/>
+
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+    </xs:sequence>
+
+    <!--  Attributes of student -->
+    <xs:attribute name="ID" type="idtype" use="required"/>
+    <xs:attribute name="password" type="passwordtype" use="required"/>
+
+  </xs:complexType>
+ </xs:element>
+</xs:schema>

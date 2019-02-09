@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- sample_student1.xml - An xml document that lists all courses for a student1. -->
+
+<!--  Assign the XSLT stylesheet to the xml file  -->
+<?xml-stylesheet type="text/xsl" href="sample_student.xsl"?>
+
+<!--  student has two attribute "ID" and "password" hash in MD5 Crypt  -->
+<student ID="777112980"  password="5eb63bbbe01eeed093cb22bb8f5acdc3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="schema.xsd">
+
+  <!-- course-list tag contains all courses, one nasted tag course with 1 to +oo appearence  -->
+  <course_list>
+
+    <!--  course tag has two attributes "course_ID" (as required attribute with pattern
+          r"IT[0-9][0-9][0-9]") and "status" which can be 'current' (as default) or 'pass'
+        -->
+    <course course_ID="IT124" status="current">
+      <!--  course-name as a string  -->
+      <course_name>Beyond Survival (Fall 2010)</course_name>
+
+      <!-- instructor tag contains the name of the instructor and his assignement as an
+           attribute "for", 1-4
+          -->
+      <instructor for="lecture">Professor Michele Elam</instructor>
+      <instructor for="lab">Professor Harry Elam</instructor>
+
+      <!--  credit_hours is a number -->
+      <credit_hours>10</credit_hours>
+
+      <!--  description as a string  -->
+      <description>Course Rationale:
+How do men and women survive—not just physically, but intellectually, creatively, spiritually—in the world? Our course examines texts that imaginatively model strategies to overcome physical deprivation (everything from enslavement to prison camp confinement to sexual violence) and social oppression (from religious persecution to gender discrimination). How does a legacy of psychic and social trauma manifest itself in the contemporary moment? How does the past impact not only the present but subsequent generations, as in the children of survivors? How do the historical specificities into which we are born impact what constitutes survival in the first place—just what is to be endured, resisted, reconsidered, embraced at any given time? How do social differences, often specific to time and place, inform not only survival but the post-survival period? How are often transnational considerations of race, ethnicity and gender, in particular, made and unmade within these texts—and further, what are the narrative as well as political means and ends of race, ethnicity, gender, and religion in these works? We will examine these questions through works that range from the seventeenth century to the present. Significantly, all the contemporary texts look back to critical moments in the past.</description>
+
+      <!--  textbooks contains the texts of the course 0-20 text can be uploaded  -->
+      <textbooks>
+
+        <!--  text tag contains the information about the course text  -->
+        <!--  text1 : main course book "Basics of Web"-->
+        <text type="book" is_main="true">
+          <!--  ISBN : The International Standard Book Number of the book  -->
+          <ISBN>978-3-16-148410-0</ISBN>
+          <!--  title : A simple string  -->
+          <title> Economic Analysis I</title>
+          <!--  author : contains fname, mname (optional) and lname.  -->
+          <author>
+            <fname>AMOKRANE</fname>
+            <mname>Abdennour</mname>
+            <lname>Majid</lname>
+          </author>
+
+          <!--  edition (optional) "integer" -->
+          <edition>2.1.0</edition>
+
+          <!--  link (optional, i.e. if the type is webpage, or type book but it is an online
+                book).
+              -->
+          <link>file:///C:/Users/asus/Downloads/EMD/Milestone-1.pdf</link>
+
+        </text>
+
+        <!--  text2 : secondary course paper "Basics of Web notes"-->
+        <text type="paper" is_main="false">
+
+          <title>Basics of Economics</title>
+          <author>
+            <fname>AMOKRANE</fname>
+            <lname>Abdennour</lname>
+          </author>
+          <edition>3.2.1</edition>
+
+        </text>
+
+        <!--  text3 : main course web page "Web dev site"-->
+        <text type="webpage" is_main="true">
+
+          <title>Economics</title>
+          <author>
+            <fname>AMOKRANE</fname>
+            <lname>Majid</lname>
+          </author>
+          <author>
+            <fname>GUEDWAR</fname>
+            <lname>Ahmed</lname>
+          </author>
+          <edition>5</edition>
+          <link>https://www.chemistryworld.com/news/less-is-more-for-dna-reactions/5553.article</link>
+
+        </text>
+
+      </textbooks>
+
+    </course>
+
+  </course_list>
+
+</student>

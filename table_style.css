@@ -1,0 +1,26 @@
+table {
+  border-collapse: collapse;
+  border: 1px solid white;
+  font-weight: 400;
+  font-family: sans-serif;
+  width: 70%;
+}
+
+th, td {
+  border: 1px solid white;
+  padding: 15px;
+}
+
+th {
+  background-color: black;
+  color: white;
+  font-size: 17px;
+  font-weight: 700;
+  text-align: center;
+  white-space: nowrap;
+}
+
+td {
+  background-color: #b3ffe6;
+  text-align: left;
+}

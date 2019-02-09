@@ -1,0 +1,457 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- sample_student1.xml - An xml document that lists all courses for a student1. -->
+
+<!--  Assign the XSLT stylesheet to the xml file  -->
+<?xml-stylesheet type="text/xsl" href="sample_student.xsl"?>
+
+<!--  student has two attribute "ID" and "password" hash in MD5 Crypt  -->
+<student ID="895214940"  password="5eb63kbbe01eeed093cb22bb8f5acdc3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="schema.xsd">
+
+  <!-- course-list tag contains all courses, one nasted tag course with 1 to +oo appearence  -->
+  <course_list>
+
+    <!--  course tag has two attributes "course_ID" (as required attribute with pattern
+          r"IT[0-9][0-9][0-9]") and "status" which can be 'current' (as default) or 'pass'
+        -->
+    <course course_ID="IT224" status="current">
+      <!--  course-name as a string  -->
+      <course_name>SOCIAL SCIENCES</course_name>
+
+      <!-- instructor tag contains the name of the instructor and his assignement as an
+           attribute "for", 1-4
+          -->
+      <instructor for="lecture">AMOKRANE Abdennour</instructor>
+      <instructor for="lab">Syeda Suheen Ali</instructor>
+
+      <!--  credit_hours is a number -->
+      <credit_hours>21</credit_hours>
+
+      <!--  description as a string  -->
+      <description>A solid background in microeconomics is useful for anyone who wants a better understanding of many important economic issues and problems. How do people decide whether and when to purchase a new laptop computer or cellular phone? How do firms decide whether to hire new employees, or to lay off some of their existing employees? Why do some industries emerge and grow, while others decline? Why have housing prices risen and fallen so steeply? By how much do changes in gasoline prices affect consumers’ behavior and their wellbeing? Should monopoly firms be regulated or left alone? Would an increase in the minimum wage help or harm workers? In Economics 50, you will develop an analytical framework for considering these and other microeconomic questions.</description>
+
+      <!--  textbooks contains the texts of the course 0-20 text can be uploaded  -->
+      <textbooks>
+
+        <!--  text tag contains the information about the course text  -->
+        <!--  text1 : main course book "Basics of Web"-->
+        <text type="book" is_main="true">
+          <!--  ISBN : The International Standard Book Number of the book  -->
+          <ISBN>254-3-76-2449710-0</ISBN>
+          <!--  title : A simple string  -->
+          <title>ENTRY TO SOCIAL SCIENCES</title>
+          <!--  author : contains fname, mname (optional) and lname.  -->
+          <author>
+            <fname>Dr. Mark</fname>
+            <lname>Tendall</lname>
+          </author>
+
+          <!--  edition (optional) "integer" -->
+          <edition>1.5</edition>
+
+          <!--  link (optional, i.e. if the type is webpage, or type book but it is an online
+                book).
+              -->
+
+        </text>
+
+        <!--  text2 : secondary course paper "Basics of Web notes"-->
+        <text type="paper" is_main="false">
+
+          <title>SC notes</title>
+
+          <author>
+            <fname>Sumaiya</fname>
+            <lname>Hasan</lname>
+          </author>
+
+          <author>
+            <fname>Sulaiman</fname>
+            <lname>Al-wateid</lname>
+          </author>
+
+          <edition>sixth</edition>
+
+        </text>
+
+        <!--  text3 : main course web page "Web dev site"-->
+        <text type="webpage" is_main="true">
+
+          <title>social science</title>
+          <author>
+            <fname>AMOKRANE</fname>
+            <lname>Majid</lname>
+          </author>
+          <author>
+            <fname>GUEDWAR</fname>
+            <lname>Ahmed</lname>
+          </author>
+          <edition>5</edition>
+          <link>https://en.wikipedia.org/wiki/Social_science</link>
+
+        </text>
+
+      </textbooks>
+
+    </course>
+
+    <course course_ID="IT314" status="current">
+      <!--  course-name as a string  -->
+      <course_name>Teaching and Learning in Higher Education (Winter 2011)</course_name>
+
+      <!-- instructor tag contains the name of the instructor and his assignement as an
+           attribute "for", 1-4
+          -->
+      <instructor for="lecture">Professor Thomas Ehrlich</instructor>
+
+      <!--  credit_hours is a number -->
+      <credit_hours>51</credit_hours>
+
+      <!--  description as a string  -->
+      <description>Purpose of the Course:
+
+Teaching and learning are the central mission of higher education.  Everyone involved in higher education, whether as a student, an instructor, or a staff member, is both a teacher and a learner. This course is designed to explore ways that all of us, as teachers, can promote lasting learning.
+
+These are the desired course outcomes:
+
+ If you want to work in higher education as an instructor, you should gain understanding about how to be an effective teacher.  You will prepare a course syllabus that should assist in realizing this objective and aid you in seeking a faculty position.  More and more colleges and universities have well-developed faculty cultures of teaching and learning, and this course will help prepare you to be a full participant in, and major contributor to, that culture.
+
+If you want to work in higher education as a staff member, or are just interested in teaching and learning, you should gain understanding about teaching and learning in higher education and about how to strengthen your abilities as a teacher and a learner.
+
+You will all have opportunities to think deeply about college teaching and to articulate beliefs and values about good teaching.  And in the context of those beliefs and values, you will practice teaching activities such as articulating learning goals, planning class sessions, and designing assessments.
+
+This course is a work in progress—we have not taught it before.  We look forward to teaching and learning together with you.
+
+ </description>
+
+      <!--  textbooks contains the texts of the course 0-20 text can be uploaded  -->
+      <textbooks>
+
+        <!--  text tag contains the information about the course text  -->
+        <!--  text1 : main course book "Basics of Web"-->
+        <text type="book" is_main="true">
+          <!--  title : A simple string  -->
+          <title>Higher Education</title>
+          <!--  author : contains fname, mname (optional) and lname.  -->
+          <author>
+            <fname>Dr. Mark</fname>
+            <lname>Tendall</lname>
+          </author>
+
+          <!--  edition (optional) "integer" -->
+          <edition>seventh</edition>
+
+          <!--  link (optional, i.e. if the type is webpage, or type book but it is an online
+                book).
+              -->
+
+        </text>
+
+      </textbooks>
+
+    </course>
+
+
+    <course course_ID="IT212" status="pass">
+      <!--  course-name as a string  -->
+      <course_name>Web development</course_name>
+
+      <!-- instructor tag contains the name of the instructor and his assignement as an
+           attribute "for", 1-4
+          -->
+      <instructor for="lecture">AMOKRANE Abdennour</instructor>
+      <instructor for="lab">MOHAMMED Abdel-jalil</instructor>
+
+      <!--  credit_hours is a number -->
+      <credit_hours>30</credit_hours>
+
+      <!--  description as a string  -->
+      <description>Course description here...</description>
+
+      <!--  textbooks contains the texts of the course 0-20 text can be uploaded  -->
+      <textbooks>
+
+        <!--  text tag contains the information about the course text  -->
+        <!--  text1 : main course book "Basics of Web"-->
+        <text type="book" is_main="true">
+          <!--  ISBN : The International Standard Book Number of the book  -->
+          <ISBN>978-3-16-148410-0</ISBN>
+          <!--  title : A simple string  -->
+          <title>Basics of Web</title>
+          <!--  author : contains fname, mname (optional) and lname.  -->
+          <author>
+            <fname>AMOKRANE</fname>
+            <mname>Abdennour</mname>
+            <lname>Majid</lname>
+          </author>
+
+          <!--  edition (optional) "integer" -->
+          <edition>2</edition>
+
+          <!--  link (optional, i.e. if the type is webpage, or type book but it is an online
+                book).
+              -->
+          <link>file:///C:/Users/asus/Downloads/EMD/Milestone-1.pdf</link>
+
+        </text>
+
+        <!--  text2 : secondary course paper "Basics of Web notes"-->
+        <text type="paper" is_main="false">
+
+          <title>Basics of Web notes</title>
+          <author>
+            <fname>AMOKRANE</fname>
+            <lname>Abdennour</lname>
+          </author>
+
+        </text>
+
+        <!--  text3 : main course web page "Web dev site"-->
+        <text type="webpage" is_main="true">
+
+          <title>Web dev site</title>
+          <author>
+            <fname>AMOKRANE</fname>
+            <lname>Majid</lname>
+          </author>
+          <author>
+            <fname>GUEDWAR</fname>
+            <lname>Ahmed</lname>
+          </author>
+          <edition>5</edition>
+          <link>https://www.chemistryworld.com/news/less-is-more-for-dna-reactions/5553.article</link>
+
+        </text>
+
+      </textbooks>
+
+    </course>
+
+    <course course_ID="IT212" status="pass">
+      <!--  course-name as a string  -->
+      <course_name>Web development</course_name>
+
+      <!-- instructor tag contains the name of the instructor and his assignement as an
+           attribute "for", 1-4
+          -->
+      <instructor for="lecture">AMOKRANE Abdennour</instructor>
+      <instructor for="lab">MOHAMMED Abdel-jalil</instructor>
+
+      <!--  credit_hours is a number -->
+      <credit_hours>30</credit_hours>
+
+      <!--  description as a string  -->
+      <description>Course description here...</description>
+
+      <!--  textbooks contains the texts of the course 0-20 text can be uploaded  -->
+      <textbooks>
+
+        <!--  text tag contains the information about the course text  -->
+        <!--  text1 : main course book "Basics of Web"-->
+        <text type="book" is_main="true">
+          <!--  ISBN : The International Standard Book Number of the book  -->
+          <ISBN>978-3-16-148410-0</ISBN>
+          <!--  title : A simple string  -->
+          <title>Basics of Web</title>
+          <!--  author : contains fname, mname (optional) and lname.  -->
+          <author>
+            <fname>AMOKRANE</fname>
+            <mname>Abdennour</mname>
+            <lname>Majid</lname>
+          </author>
+
+          <!--  edition (optional) "integer" -->
+          <edition>2</edition>
+
+          <!--  link (optional, i.e. if the type is webpage, or type book but it is an online
+                book).
+              -->
+          <link>file:///C:/Users/asus/Downloads/EMD/Milestone-1.pdf</link>
+
+        </text>
+
+        <!--  text2 : secondary course paper "Basics of Web notes"-->
+        <text type="paper" is_main="false">
+
+          <title>Basics of Web notes</title>
+          <author>
+            <fname>AMOKRANE</fname>
+            <lname>Abdennour</lname>
+          </author>
+
+        </text>
+
+        <!--  text3 : main course web page "Web dev site"-->
+        <text type="webpage" is_main="true">
+
+          <title>Web dev site</title>
+          <author>
+            <fname>AMOKRANE</fname>
+            <lname>Majid</lname>
+          </author>
+          <author>
+            <fname>GUEDWAR</fname>
+            <lname>Ahmed</lname>
+          </author>
+          <edition>5</edition>
+          <link>https://www.chemistryworld.com/news/less-is-more-for-dna-reactions/5553.article</link>
+
+        </text>
+
+      </textbooks>
+
+    </course>
+
+    <course course_ID="IT212" status="pass">
+      <!--  course-name as a string  -->
+      <course_name>Web development</course_name>
+
+      <!-- instructor tag contains the name of the instructor and his assignement as an
+           attribute "for", 1-4
+          -->
+      <instructor for="lecture">AMOKRANE Abdennour</instructor>
+      <instructor for="lab">MOHAMMED Abdel-jalil</instructor>
+
+      <!--  credit_hours is a number -->
+      <credit_hours>30</credit_hours>
+
+      <!--  description as a string  -->
+      <description>Course description here...</description>
+
+      <!--  textbooks contains the texts of the course 0-20 text can be uploaded  -->
+      <textbooks>
+
+        <!--  text tag contains the information about the course text  -->
+        <!--  text1 : main course book "Basics of Web"-->
+        <text type="book" is_main="true">
+          <!--  ISBN : The International Standard Book Number of the book  -->
+          <ISBN>978-3-16-148410-0</ISBN>
+          <!--  title : A simple string  -->
+          <title>Basics of Web</title>
+          <!--  author : contains fname, mname (optional) and lname.  -->
+          <author>
+            <fname>AMOKRANE</fname>
+            <mname>Abdennour</mname>
+            <lname>Majid</lname>
+          </author>
+
+          <!--  edition (optional) "integer" -->
+          <edition>2</edition>
+
+          <!--  link (optional, i.e. if the type is webpage, or type book but it is an online
+                book).
+              -->
+          <link>file:///C:/Users/asus/Downloads/EMD/Milestone-1.pdf</link>
+
+        </text>
+
+        <!--  text2 : secondary course paper "Basics of Web notes"-->
+        <text type="paper" is_main="false">
+
+          <title>Basics of Web notes</title>
+          <author>
+            <fname>AMOKRANE</fname>
+            <lname>Abdennour</lname>
+          </author>
+
+        </text>
+
+        <!--  text3 : main course web page "Web dev site"-->
+        <text type="webpage" is_main="true">
+
+          <title>Web dev site</title>
+          <author>
+            <fname>AMOKRANE</fname>
+            <lname>Majid</lname>
+          </author>
+          <author>
+            <fname>GUEDWAR</fname>
+            <lname>Ahmed</lname>
+          </author>
+          <edition>5</edition>
+          <link>https://www.chemistryworld.com/news/less-is-more-for-dna-reactions/5553.article</link>
+
+        </text>
+
+      </textbooks>
+
+    </course>
+
+    <course course_ID="IT212" status="pass">
+      <!--  course-name as a string  -->
+      <course_name>Web development</course_name>
+
+      <!-- instructor tag contains the name of the instructor and his assignement as an
+           attribute "for", 1-4
+          -->
+      <instructor for="lecture">AMOKRANE Abdennour</instructor>
+      <instructor for="lab">MOHAMMED Abdel-jalil</instructor>
+
+      <!--  credit_hours is a number -->
+      <credit_hours>30</credit_hours>
+
+      <!--  description as a string  -->
+      <description>Course description here...</description>
+
+      <!--  textbooks contains the texts of the course 0-20 text can be uploaded  -->
+      <textbooks>
+
+        <!--  text tag contains the information about the course text  -->
+        <!--  text1 : main course book "Basics of Web"-->
+        <text type="book" is_main="true">
+          <!--  ISBN : The International Standard Book Number of the book  -->
+          <ISBN>978-3-16-148410-0</ISBN>
+          <!--  title : A simple string  -->
+          <title>Basics of Web</title>
+          <!--  author : contains fname, mname (optional) and lname.  -->
+          <author>
+            <fname>AMOKRANE</fname>
+            <mname>Abdennour</mname>
+            <lname>Majid</lname>
+          </author>
+
+          <!--  edition (optional) "integer" -->
+          <edition>2</edition>
+
+          <!--  link (optional, i.e. if the type is webpage, or type book but it is an online
+                book).
+              -->
+          <link>file:///C:/Users/asus/Downloads/EMD/Milestone-1.pdf</link>
+
+        </text>
+
+        <!--  text2 : secondary course paper "Basics of Web notes"-->
+        <text type="paper" is_main="false">
+
+          <title>Basics of Web notes</title>
+          <author>
+            <fname>AMOKRANE</fname>
+            <lname>Abdennour</lname>
+          </author>
+
+        </text>
+
+        <!--  text3 : main course web page "Web dev site"-->
+        <text type="webpage" is_main="true">
+
+          <title>Web dev site</title>
+          <author>
+            <fname>AMOKRANE</fname>
+            <lname>Majid</lname>
+          </author>
+          <author>
+            <fname>GUEDWAR</fname>
+            <lname>Ahmed</lname>
+          </author>
+          <edition>5</edition>
+          <link>https://www.chemistryworld.com/news/less-is-more-for-dna-reactions/5553.article</link>
+
+        </text>
+
+      </textbooks>
+
+    </course>
+
+
+  </course_list>
+
+</student>
